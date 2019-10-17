@@ -14,6 +14,10 @@ const pedidosSchema = new Schema({
     }],
     total: {
         type: Number
+    },
+    entregado: {
+        type: Boolean,
+        default: false
     }
 })
 

@@ -23,6 +23,7 @@ const {
     nuevoPedido,
     mostrarPedido,
     editarPedido,
+    cambiarEstado,
     eliminarPedido
 } = require('../controllers/pedidos.controller.js')
 
@@ -115,6 +116,12 @@ router.put('/pedidos/:id',
     editarPedido
 )
 
+//cambiar estado de pedido
+router.put('/pedidos/estado/:id',
+    cambiarEstado
+)
+
+//eliminar pedido por ID
 router.delete('/pedidos/:id',
     eliminarPedido
 )

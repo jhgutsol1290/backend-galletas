@@ -78,6 +78,25 @@ ctrl.editarPedido = async (req, res) => {
     }
 }
 
+//cambiar estado de pedido
+ctrl.cambiarEstado = async (req, res, next) => {
+    
+    const { id } = req.params
+
+    try {
+        
+        const pedido = await Pedidos.findOne({_id: id})
+        pedido.entregado = !pedido.entregado
+        await pedido.save()
+        return res.json({mensaje: 'Estado cambiado correctamente'})
+
+    } catch (error) {
+                                  
+        return res.status(500).json({mensaje: 'Error en el servidor'})
+
+    }
+}
+
 //eliminar pedido por ID
 ctrl.eliminarPedido = async (req, res) => {
     try {
